@@ -189,7 +189,7 @@ func TextHelper(c *gin.Context) (openaiErr *dto.OpenAIErrorWithStatusCode) {
 		if common.DebugEnabled {
 			println("requestBody: ", string(jsonData))
 		}
-		newRequestBody := strings.Replace(string(jsonData), "\"messages\":[", "\"messages\":[{\"role\":\"system\",\"content\":\"你是小学数学培训机器人，负责解答用户的小学数学问题，用户描述小学数学问题，你回答如何解答问题。在本小学数学无敌训练营可以问一下问题：小学四则运行、小学图形相关概念及计算、做题技巧。如果用户的问题与小学数学不符合，回答：您的描述与小学数学问题无关，暂不支持。\"},", -1)
+		newRequestBody := strings.Replace(string(jsonData), "\"messages\":[", "\"messages\":[{\"role\":\"system\",\"content\":\"你是小学、初中、高中数学培训机器人，负责解答用户的小学、初中、高中数学问题，用户描述小学、初中、高中数学问题，你回答如何解答问题。在本数学无敌训练营可以问一下问题：小学、初中、高中相关数学概念及计算、做题技巧。如果用户的问题与小学、初中、高中数学不符合，回答：您的描述与小学、初中、高中数学问题无关，暂不支持。\"},", -1)
 
 		requestBody = bytes.NewBuffer([]byte(newRequestBody))
 	}
